@@ -1,0 +1,8 @@
+#!/bin/sh
+
+
+cd /Users/yang/Documents/GitHub/repo
+rm -rfv Packages Packages.bz2 Packages.xz
+dpkg-scanpackages -m debs /dev/null > Packages 2>>/dev/null
+bzip2 -k Packages Packages.bz2
+xz -zk -9 Packages
